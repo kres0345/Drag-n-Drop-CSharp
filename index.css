@@ -1,3 +1,45 @@
+#DragableTable{
+	border-style: solid;
+	border-color: black;
+	margin-top: 10px;
+	width: 60%;
+	float: right;
+}
+#PrefabTable{
+	border-style: solid;
+	border-color: gray;
+	margin-top: 10px;
+	width: 39%;
+	float: left;
+}
+
+
+/* Classes */
 h1, p{
 	font-family: sans-serif;
+}
+li{
+	font-size: 25;
+}
+li:hover{
+	border-radius: 10%;
+}
+.center{
+	text-align: center;
+
+}
+.dragable{
+	list-style-type: circle;
+	border-style: solid;
+	border-radius: 50px;
+	border-color: green;
+}
+.prefabs{
+	list-style-type: circle;
+	border-style: solid;
+	border-radius: 50px;
+	border-color: green;
+}
+.LeftMargin{
+	margin-left: 10px;
 }

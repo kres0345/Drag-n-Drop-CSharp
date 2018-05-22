@@ -4,6 +4,25 @@
 	<link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
-<h1>Project drag'n'drop Csharp</h1>
+	<h1 class="center">Project drag'n'drop Csharp</h1>
+		<div id="PrefabTable">
+			<p class="LeftMargin">Prefabs</p>
+			<input type="text" class="LeftMargin" id="NewPrefab">
+			<input type="button" value="Add Prefab" class="LeftMargin" onclick="AddCustomPrefab(document.getElementById('NewBlock').value);">
+			<ul id="DragList">
+				<li class="prefabs">using ...;</li>
+			</ul>
+		</div>
+
+		<div id="DragableTable">
+			<p class="LeftMargin">Editor</p>
+			<input type="text" class="LeftMargin" id="NewBlock">
+			<input type="button" value="Add Block" class="LeftMargin" onclick="AddCustomBlock(document.getElementById('NewBlock').value);">
+			<ul id="DragList">
+				<li class="dragable" draggable="true">using System; <input type="text" class="LeftMargin"></li>
+				<li class="dragable" draggable="true">using System.Dianostics;</li>
+			</ul>
+		</div>
 </body>
 </html>
+<script src="index.js"></script>
