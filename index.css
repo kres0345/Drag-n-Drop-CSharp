@@ -12,6 +12,9 @@
 	width: 39%;
 	float: left;
 }
+#PrefabList{
+
+}
 
 
 /* Classes */
@@ -33,12 +36,14 @@ li:hover{
 	border-style: solid;
 	border-radius: 50px;
 	border-color: green;
+	width: 99%;
 }
 .prefabs{
 	list-style-type: circle;
 	border-style: solid;
 	border-radius: 50px;
 	border-color: green;
+	width: 97%;
 }
 .LeftMargin{
 	margin-left: 10px;

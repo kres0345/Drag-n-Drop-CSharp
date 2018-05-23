@@ -6,6 +6,7 @@ function AddCustomBlock(blocktext){
   console.log(blocktext);
   document.getElementById("NewBlock").value = "";
   document.getElementById("DragList").innerHTML += '<li class="dragable" draggable="true">'+blocktext+'</li>';
+  RefreshDrags();
 }
 function AddCustomPrefab(blocktext){
   if (blocktext == "") {
@@ -13,11 +14,30 @@ function AddCustomPrefab(blocktext){
   }
   console.log(blocktext);
   document.getElementById("NewPrefab").value = "";
-  document.getElementById("DragList").innerHTML += '<li class="dragable" draggable="true">'+blocktext+'</li>';
+  document.getElementById("PrefabList").innerHTML += '<li class="prefabs" onclick="AddPrefabBlock(this);">'+blocktext+'</li>';
 }
-function AddPrefabBlock(){
-  
+function AddPrefabBlock(BlockObject){
+  document.getElementById("DragList").innerHTML += '<li class="dragable" draggable="true">'+BlockObject.innerText+'</li>'
+  RefreshDrags();
 }
+function advancedview(){
+  var checkbox = document.getElementById("AdvancedViewCB");
+  if (checkbox.checked) {
+    console.log("Checked");
+    EnableAdvancedView();
+  }
+  else if (!checkbox.checked) {
+    console.log("Not checked");
+    DisableAdvancedView();
+  }
+}
+function EnableAdvancedView(){
+
+}
+function DisableAdvancedView(){
+
+}
+
 
 var dragSrcEl = null;
 
@@ -76,7 +96,21 @@ function handleDragEnd(e) {
    });
 }
 
+function RefreshDrags(){
+  var cols = document.querySelectorAll('#DragList .dragable');
+
+  [].forEach.call(cols, function (col) {
+     col.addEventListener('dragstart', handleDragStart, false);
+     col.addEventListener('dragenter', handleDragEnter, false)
+     col.addEventListener('dragover', handleDragOver, false);
+     col.addEventListener('dragleave', handleDragLeave, false);
+     col.addEventListener('drop', handleDrop, false);
+     col.addEventListener('dragend', handleDragEnd, false);
+  });
+}
+//var cols = document.querySelectorAll('#DragList .dragable');
 var cols = document.querySelectorAll('#DragList .dragable');
+
 [].forEach.call(cols, function (col) {
    col.addEventListener('dragstart', handleDragStart, false);
    col.addEventListener('dragenter', handleDragEnter, false)
