@@ -7,7 +7,17 @@ function AddCustomBlock(blocktext){
   document.getElementById("NewBlock").value = "";
   document.getElementById("DragList").innerHTML += '<li class="dragable" draggable="true">'+blocktext+'</li>';
 }
-
+function AddCustomPrefab(blocktext){
+  if (blocktext == "") {
+    return;
+  }
+  console.log(blocktext);
+  document.getElementById("NewPrefab").value = "";
+  document.getElementById("DragList").innerHTML += '<li class="dragable" draggable="true">'+blocktext+'</li>';
+}
+function AddPrefabBlock(){
+  
+}
 
 var dragSrcEl = null;
 

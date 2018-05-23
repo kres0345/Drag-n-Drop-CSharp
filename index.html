@@ -8,9 +8,9 @@
 		<div id="PrefabTable">
 			<p class="LeftMargin">Prefabs</p>
 			<input type="text" class="LeftMargin" id="NewPrefab">
-			<input type="button" value="Add Prefab" class="LeftMargin" onclick="AddCustomPrefab(document.getElementById('NewBlock').value);">
+			<input type="button" value="Add Prefab" class="LeftMargin" onclick="AddCustomPrefab(document.getElementById('NewPrefab').value);">
 			<ul id="DragList">
-				<li class="prefabs">using ...;</li>
+				<li class="prefabs" onclick="AddPrefabBlock();">using ...;</li> <!-- Add event listener instead of onclick -->
 			</ul>
 		</div>
 
