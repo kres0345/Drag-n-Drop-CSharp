@@ -5,7 +5,7 @@ function AddCustomBlock(blocktext){
   }
   console.log(blocktext);
   document.getElementById("NewBlock").value = "";
-  document.getElementById("DragList").innerHTML += '<li class="dragable" draggable="true">'+blocktext+'</li>';
+  document.getElementById("DragList").innerHTML += '<li class="dragable" draggable="true"><input type="text" class="dragableTextbox" value="'+blocktext+'"></li>';
   RefreshDrags();
 }
 function AddCustomPrefab(blocktext){
@@ -17,7 +17,7 @@ function AddCustomPrefab(blocktext){
   document.getElementById("PrefabList").innerHTML += '<li class="prefabs" onclick="AddPrefabBlock(this);">'+blocktext+'</li>';
 }
 function AddPrefabBlock(BlockObject){
-  document.getElementById("DragList").innerHTML += '<li class="dragable" draggable="true">'+BlockObject.innerText+'</li>'
+  document.getElementById("DragList").innerHTML += '<li class="dragable" draggable="true"><input type="text" class="dragableTextbox" value="'+BlockObject.innerText+'"></li>'
   RefreshDrags();
 }
 function advancedview(){
@@ -37,6 +37,37 @@ function EnableAdvancedView(){
 function DisableAdvancedView(){
 
 }
+function GenerateCsharpfile(){
+  var filename = document.getElementById("FilenameInput");
+  var LinesOfCode = document.getElementsByClassName("dragable");
+  var CodeSource = "";
+  if (filename.value != "") {
+    var i = 0;
+    while (i < LinesOfCode.length) {
+      if (LinesOfCode[i].innerText != "") {
+        CodeSource += LinesOfCode[i].innerText + "\n";
+      }
+      else if (LinesOfCode[i].innerText == "") {
+        CodeSource += LinesOfCode[i].lastChild.value + "\n";
+      }
+      i+=1;
+    }
+    download(document.getElementById("FilenameInput").value, CodeSource)
+  }
+}
+function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+
 
 
 var dragSrcEl = null;

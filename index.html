@@ -1,28 +1,55 @@
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Project drag'n'drop Csharp</title>
 	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 </head>
 <body>
 	<h1 class="center">Project drag'n'drop Csharp</h1>
-		<div id="PrefabTable">
-			<p class="LeftMargin">Prefabs</p>
-			<input type="text" class="LeftMargin" id="NewPrefab">
-			<input type="button" value="Add Prefab" class="LeftMargin" onclick="AddCustomPrefab(document.getElementById('NewPrefab').value);">
-			<ul id="PrefabList">
-				<li class="prefabs" onclick="AddPrefabBlock(this);">using ...;</li> <!-- Add event listener instead of onclick -->
-			</ul>
-		</div>
 
-		<div id="DragableTable">
-			<p class="LeftMargin">Editor</p>
-			<input type="text" class="LeftMargin" id="NewBlock">
-			<input type="button" value="Add Block" class="LeftMargin" onclick="AddCustomBlock(document.getElementById('NewBlock').value);"><input type="checkbox" onclick="advancedview()" id="AdvancedViewCB" checked>Toggle Advanced view
-			<ul class="DragList" id="DragList">
-				<li class="dragable" draggable="true">using System; <input type="text" class="LeftMargin"></li>
-				<li class="dragable" draggable="true">using System.Dianostics;</li>
-			</ul>
+	<div id="header">
+		<input type="text" id="FilenameInput" value="MyCSharpProject.txt"><br>
+		<div id="toolbar">
+			<div class="dropdown">
+			  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">File
+			  <span class="caret"></span></button>
+			  <ul class="dropdown-menu">
+			    <li><a href="#" class="dropdownmenubtn" onclick="GenerateCsharpfile();">Download</a></li>
+			    <li><a href="#" class="dropdownmenubtn">CSS</a></li>
+			    <li><a href="#" class="dropdownmenubtn">JavaScript</a></li>
+			  </ul>
+			</div>
+			<input type="button" value="Download" onclick="GenerateCsharpfile();">
 		</div>
+	</div>
+
+	<div id="PrefabTable">
+		<br>
+		<p class="LeftMargin">Prefabs</p>
+		<input type="text" class="LeftMargin" id="NewPrefab">
+		<input type="button" value="Add Prefab" class="LeftMargin" onclick="AddCustomPrefab(document.getElementById('NewPrefab').value);">
+		<br><br>
+		<ul id="PrefabList">
+			<li class="prefabs" onclick="AddPrefabBlock(this);">using System;</li> <!-- Add event listener instead of onclick -->
+		</ul>
+	</div>
+
+	<div id="DragableTable">
+		<br>
+		<p class="LeftMargin">Editor</p>
+		<input type="text" class="LeftMargin" id="NewBlock">
+		<input type="button" value="Add Block" class="LeftMargin" onclick="AddCustomBlock(document.getElementById('NewBlock').value);"><input type="checkbox" onclick="advancedview()" id="AdvancedViewCB" checked>Toggle Advanced view
+		<br><br>
+		<ul class="DragList" id="DragList">
+			<li class="dragable" draggable="true"><input type="text" class="dragableTextbox" value="using System;"></li>
+			<li class="dragable" draggable="true"><input type="text" class="dragableTextbox" value="using System.Dianostics;"></li>
+		</ul>
+	</div>
 </body>
 </html>
 <script src="index.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>

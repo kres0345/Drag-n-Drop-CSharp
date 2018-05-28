@@ -15,18 +15,38 @@
 #PrefabList{
 
 }
+#header{
+	border-style: solid;
+	border-color: black;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+#toolbar{
+	margin: 10px 10px 5px 10px;
+}
+#FilenameInput{
+	margin: 10px 10px 10px 10px;
+	height: 30px;
+	width: 20%;
+	padding-left: 10px;
+	-webkit-transition: width 0.5s; /* Safari */
+  transition: width 0.5s;
+}
+#FilenameInput:focus{
+	width: 95%;
+}
 
 
 /* Classes */
 h1, p{
 	font-family: sans-serif;
 }
-li{
+/*li{
 	font-size: 25;
 }
 li:hover{
 	border-radius: 10%;
-}
+}*/
 .center{
 	text-align: center;
 
@@ -37,6 +57,8 @@ li:hover{
 	border-radius: 50px;
 	border-color: green;
 	width: 99%;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 .prefabs{
 	list-style-type: circle;
@@ -44,7 +66,19 @@ li:hover{
 	border-radius: 50px;
 	border-color: green;
 	width: 97%;
+	padding-left: 10px;
 }
 .LeftMargin{
 	margin-left: 10px;
+}
+.dropdownmenubtn{
+	border-style: solid;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.dropdownmenubtn:hover{
+	border-style: dotted;
+}
+.dragableTextbox{
+	width: 100%;
 }
