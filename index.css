@@ -35,11 +35,27 @@
 #FilenameInput:focus{
 	width: 95%;
 }
+#FileTab{
+	float: left;
+}
+#EditorTab{
+	float: left;
+}
+#ViewTab{
+	float: left;
+}
+#SettingsTab{
+
+}
 
 
 /* Classes */
 h1, p{
 	font-family: sans-serif;
+}
+.toolbartabs{
+	position: static !important;
+	
 }
 /*li{
 	font-size: 25;

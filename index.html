@@ -11,16 +11,40 @@
 	<div id="header">
 		<input type="text" id="FilenameInput" value="MyCSharpProject.txt"><br>
 		<div id="toolbar">
-			<div class="dropdown">
+			<div class="dropdown toolbartabs" id="FileTab">
 			  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">File
 			  <span class="caret"></span></button>
 			  <ul class="dropdown-menu">
 			    <li><a href="#" class="dropdownmenubtn" onclick="GenerateCsharpfile();">Download</a></li>
-			    <li><a href="#" class="dropdownmenubtn">CSS</a></li>
-			    <li><a href="#" class="dropdownmenubtn">JavaScript</a></li>
+			    <li><a href="#" class="dropdownmenubtn" onclick="ChangeFilename();">Change Filename</a></li>
 			  </ul>
 			</div>
-			<input type="button" value="Download" onclick="GenerateCsharpfile();">
+			<div class="dropdown toolbartabs" id="EditorTab">
+			  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Editor
+			  <span class="caret"></span></button>
+			  <ul class="dropdown-menu">
+			    <li><a href="#" class="dropdownmenubtn" onclick="ClearCustomTable();">Clear Custom Table</a></li>
+					<li><a href="#" class="dropdownmenubtn" onclick="AddBasicBlocksTemplate();">Insert Standard Template</a></li>
+
+			  </ul>
+			</div>
+			<div class="dropdown toolbartabs" id="ViewTab">
+				<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">View
+				<span class="caret"></span></button>
+				<ul class="dropdown-menu">
+					<li><a href="#" class="dropdownmenubtn" onclick="null">Advanced View</a></li>
+
+				</ul>
+			</div>
+			<div class="dropdown toolbartabs" id="SettingsTab">
+				<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Settings
+				<span class="caret"></span></button>
+				<ul class="dropdown-menu">
+					<li><a href="#" class="dropdownmenubtn" onclick="null">Advanced View</a></li>
+
+				</ul>
+			</div>
+			<!--<input type="button" value="Download" onclick="GenerateCsharpfile();">-->
 		</div>
 	</div>
 

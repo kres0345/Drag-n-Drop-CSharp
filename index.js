@@ -39,6 +39,15 @@ function EnableAdvancedView(){
 function DisableAdvancedView(){
 
 }
+function ClearCustomTable(){
+  var CustomBlocks = document.getElementsByClassName("dragable");
+  while (CustomBlocks[0] != undefined) {
+    CustomBlocks[0].remove();
+  }
+}
+function ChangeFilename(){
+  
+}
 function AddPredefinedPrefabList(){
   var i = 0;
   while (i < prefabblocks.length) {
