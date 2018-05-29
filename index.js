@@ -1,3 +1,5 @@
+var prefabblocks = ["using System;", "static void Main(string[] args)", "{", "}", "namespace MyConsoleApp1", "class Program"]
+
 
 function AddCustomBlock(blocktext){
   if (blocktext == "") {
@@ -5,7 +7,7 @@ function AddCustomBlock(blocktext){
   }
   console.log(blocktext);
   document.getElementById("NewBlock").value = "";
-  document.getElementById("DragList").innerHTML += '<li class="dragable" draggable="true"><input type="text" class="dragableTextbox" value="'+blocktext+'"></li>';
+  document.getElementById("DragList").innerHTML += '<li class="dragable" draggable="true"><input type="text" class="dragableTextbox" value='+"'"+blocktext+"'></li>";
   RefreshDrags();
 }
 function AddCustomPrefab(blocktext){
@@ -36,6 +38,21 @@ function EnableAdvancedView(){
 }
 function DisableAdvancedView(){
 
+}
+function AddPredefinedPrefabList(){
+  var i = 0;
+  while (i < prefabblocks.length) {
+    AddCustomPrefab(prefabblocks[i]);
+    i += 1;
+  }
+}
+function AddBasicBlocksTemplate(){
+  var i = 0;
+  var BlockList = ["using System;","using System.Collections.Generic;","using System.Linq;","using System.Text;","using System.Threading.Tasks;","namespace MyConsoleApp1","{","class Program", "{", "static void Main(string[] args)","{",'Console.WriteLine("Hello world");',"}", "}", "}"];
+  while (i < BlockList.length) {
+    AddCustomBlock(BlockList[i]);
+    i += 1;
+  }
 }
 function GenerateCsharpfile(){
   var filename = document.getElementById("FilenameInput");
@@ -150,3 +167,6 @@ var cols = document.querySelectorAll('#DragList .dragable');
    col.addEventListener('drop', handleDrop, false);
    col.addEventListener('dragend', handleDragEnd, false);
 });
+
+AddPredefinedPrefabList();
+AddBasicBlocksTemplate();
