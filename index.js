@@ -46,7 +46,7 @@ function ClearCustomTable(){
   }
 }
 function ChangeFilename(){
-  
+
 }
 function AddPredefinedPrefabList(){
   var i = 0;
@@ -57,7 +57,7 @@ function AddPredefinedPrefabList(){
 }
 function AddBasicBlocksTemplate(){
   var i = 0;
-  var BlockList = ["using System;","using System.Collections.Generic;","using System.Linq;","using System.Text;","using System.Threading.Tasks;","namespace MyConsoleApp1","{","class Program", "{", "static void Main(string[] args)","{",'Console.WriteLine("Hello world");',"}", "}", "}"];
+  var BlockList = ["using System;","using System.Collections.Generic;","using System.Linq;","using System.Text;","namespace MyConsoleApp1","{","class Program", "{", "static void Main(string[] args)","{",'Console.WriteLine("Hello world");',"}", "}", "}"];
   while (i < BlockList.length) {
     AddCustomBlock(BlockList[i]);
     i += 1;
