@@ -1,4 +1,8 @@
-var prefabblocks = ["using System;", "static void Main(string[] args)", "{", "}", "namespace MyConsoleApp1", "class Program"]
+var prefabblocks = ["using System;",
+"static void Main(string[] args)",
+"{", "}", "namespace MyConsoleApp1",
+"class Program",
+"Console.ReadLine();"]
 
 
 function AddCustomBlock(blocktext){
@@ -57,7 +61,7 @@ function AddPredefinedPrefabList(){
 }
 function AddBasicBlocksTemplate(){
   var i = 0;
-  var BlockList = ["using System;","using System.Collections.Generic;","using System.Linq;","using System.Text;","namespace MyConsoleApp1","{","class Program", "{", "static void Main(string[] args)","{",'Console.WriteLine("Hello world");',"}", "}", "}"];
+  var BlockList = ["using System;","using System.Collections.Generic;","using System.Linq;","using System.Text;","namespace MyConsoleApp1","{","class Program", "{", "static void Main(string[] args)","{",'Console.WriteLine("Hello world");',"Console.ReadLine();","}", "}", "}"];
   while (i < BlockList.length) {
     AddCustomBlock(BlockList[i]);
     i += 1;
