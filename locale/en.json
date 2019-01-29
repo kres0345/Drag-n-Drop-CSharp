@@ -1,0 +1,15 @@
+{
+	"menubar":{
+		"file": {
+			"file": "File",
+			"download": "Download"
+		},
+		"edit": {
+			"edit": "Edit"
+		},
+		"view": {
+			"view": "View",
+			"advanced": "Show advanced options"
+		}
+	}
+}
