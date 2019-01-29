@@ -1,5 +1,5 @@
 var theWorkspace = Blockly.inject('blocklyDiv',
-      {toolbox: document.getElementById('toolbox')})
+      {toolbox: document.getElementById('toolbox')});
 
 //Assign on load, or from cookies.
 let locale = {};

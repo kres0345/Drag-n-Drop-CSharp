@@ -1,41 +1,56 @@
-/*
-#DragableTable{
-	border-style: solid;
-	border-color: black;
-	margin-top: 10px;
-	width: 60%;
-	float: right;
-}
-#PrefabTable{
-	border-style: solid;
-	border-color: gray;
-	margin-top: 10px;
-	width: 39%;
-	float: left;
-}
-#PrefabList{
-
-}*/
 #header{
 	border-style: solid;
 	border-color: black;
-	margin-left: 10px;
-	margin-right: 10px;
+	border-left-color: inherit;
+	height: 75px;
 }
 #toolbar{
-	margin: 10px 10px 5px 10px;
+	margin: 0px 10px 5px 10px;
 }
+.toolbar-item{
+	background-color: white;
+	float: left;
+	height: 20px;
+	padding-left: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-right: 5px;
+
+	border-radius: 5px;
+}
+.toolbar-item:hover{
+	background-color: lightgray;
+}
+.toolbar-item-label{
+	font-family: sans-serif;
+	text-align: center;
+	vertical-align: middle;
+}
+
 #FilenameInput{
 	margin: 10px 10px 10px 10px;
 	height: 30px;
 	width: 20%;
 	padding-left: 10px;
 	-webkit-transition: width 0.5s;
-  transition: width 0.5s;
-  font-family: 'Nunito';
+	transition: width 0.5s;
+	font-family: 'Nunito', serif;
+
+	outline-width: 0px;
+	outline-color: white;
+	outline-style: solid;
+
+	border-color: lightgray;
+	border-radius: 1px;
+	border-width: 1px;
+	border-style: solid;
 }
 #FilenameInput:focus{
 	width: 95%;
+
+	outline-width: 3px;
+	outline-color: dodgerblue;
+	outline-style: solid;
 }
 #FileTab{
 	float: left;
@@ -86,6 +101,25 @@ li:hover{
 	border-color: green;
 	width: 97%;
 	padding-left: 10px;
+}*/
+
+/*
+#DragableTable{
+	border-style: solid;
+	border-color: black;
+	margin-top: 10px;
+	width: 60%;
+	float: right;
+}
+#PrefabTable{
+	border-style: solid;
+	border-color: gray;
+	margin-top: 10px;
+	width: 39%;
+	float: left;
+}
+#PrefabList{
+
 }*/
 .LeftMargin{
 	margin-left: 10px;
