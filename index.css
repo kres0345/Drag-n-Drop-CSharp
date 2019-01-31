@@ -27,8 +27,18 @@
 	vertical-align: middle;
 }
 
-#FilenameInput{
-	margin: 10px 10px 10px 10px;
+#blockly_area{
+	/*border-style: solid;
+	border-color: black;
+	border-radius: 2px;
+	border-width: 10px;*/
+
+    height: 480px;
+    width: 50%;
+}
+
+#projectname_input{
+	margin: 10px 10px 3px 10px;
 	height: 30px;
 	width: 20%;
 	padding-left: 10px;
@@ -45,45 +55,78 @@
 	border-width: 1px;
 	border-style: solid;
 }
-#FilenameInput:focus{
+#projectname_input:focus{
 	width: 95%;
 
 	outline-width: 3px;
 	outline-color: dodgerblue;
 	outline-style: solid;
 }
-#FileTab{
-	float: left;
-}
-#EditorTab{
-	float: left;
-}
-#ViewTab{
-	float: left;
-}
-#SettingsTab{
 
+.dropdownmenubtn{
+	border-style: solid;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.dropdownmenubtn:hover{
+	border-style: dotted;
+}
+.dragableTextbox{
+	width: 100%;
 }
 
 
 
-h1, p{
-	font-family: sans-serif;
+/* Window Dual-Pane Width slider*/
+.slidecontainer {
+	width: 100%;
 }
-.toolbartabs{
-	position: static !important;
-	
-}
-/*li{
-	font-size: 25;
-}
-li:hover{
-	border-radius: 10%;
-}*/
-.center{
-	text-align: center;
 
+.slider {
+	-webkit-appearance: none;
+	width: 100%;
+	height: 20px;
+	background: #d3d3d3;
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: .2s;
+	transition: opacity .2s;
 }
+
+.slider:hover{
+	opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 50px;
+	height: 20px;
+	background: #4CAF50;
+	cursor: pointer;
+
+	-webkit-transition: .2s;
+	transition: height .2s;
+}
+.slider::-webkit-slider-thumb:hover {
+	height: 25px;
+}
+
+.slider::-moz-range-thumb {
+	width: 25px;
+	height: 20px;
+	background: #4CAF50;
+	cursor: pointer;
+
+	transition: height .2s;
+}
+.slider::-moz-range-thumb:hover {
+	height: 25px;
+}
+
+
+
+/* Old */
 /*
 .dragable{
 	list-style-type: circle;
@@ -121,17 +164,42 @@ li:hover{
 #PrefabList{
 
 }*/
+
+/*li{
+	font-size: 25;
+}
+li:hover{
+	border-radius: 10%;
+}*/
+
+
+/*
+h1, p{
+	font-family: sans-serif;
+}
+.toolbartabs{
+	position: static !important;
+
+}
+.center{
+	text-align: center;
+
+}
 .LeftMargin{
 	margin-left: 10px;
 }
-.dropdownmenubtn{
-	border-style: solid;
-	padding-left: 10px;
-	padding-right: 10px;
+
+
+#FileTab{
+	float: left;
 }
-.dropdownmenubtn:hover{
-	border-style: dotted;
+#EditorTab{
+	float: left;
 }
-.dragableTextbox{
-	width: 100%;
+#ViewTab{
+	float: left;
 }
+#SettingsTab{
+
+}
+ */

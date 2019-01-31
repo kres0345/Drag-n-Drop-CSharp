@@ -1,104 +1,119 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{filename}} - Drag n Drop</title>
-	<link rel="stylesheet" type="text/css" href="index.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+	<link href="index.css" rel="stylesheet" type="text/css">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 	<link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
 	<script src="ext/vue.js"></script>
+	<script src="ext/vue-i18n.js"></script>
+	<script src="utils.js"></script>
+	<script src="ext/jquery-3.3.1.min.js"></script>
 	<script src="ext/blockly_compressed.js"></script>
 	<script src="ext/blocks_compressed.js"></script>
 	<script src="msg/js/en.js"></script>
 </head>
-<body>
-	<!--<h1 class="center">Project drag'n'drop Csharp</h1>
--->	
-	<div id="header">
-		<input name="filename" type="text" id="FilenameInput" autocomplete="off" onclick="this.setSelectionRange(0, this.value.length)" onchange="document.title = filename = this.value" value="untitled"><br>
-        <div id="toolbar">
-            <div class="toolbar-item" id="file"><p class="toolbar-item-label">File</p>
+<div>
+	<div id="application">
+		<div id="header">
+			<input id="projectname_input" onclick="this.setSelectionRange(0, this.value.length)" onchange="projectname_change(this.value)" autocomplete="off" value="untitled project" name="filename" type="text" ><br>
+			<div id="toolbar">
+				<div class="toolbar-item" id="file"><p class="toolbar-item-label">{{ $t("messages.menubar.file.label") }}</p> <!--File-->
+				</div>
+				<div class="toolbar-item" id="edit"><p class="toolbar-item-label">{{ $t("messages.menubar.edit.label") }}</p> <!--Edit-->
+				</div>
+			</div>
 
-            </div>
+			<!--
+			<div id="toolbar">
+				<div class="dropdown toolbartabs" id="FileTab">
+				  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">File
+				  <span class="caret"></span></button>
+				  <ul class="dropdown-menu">
+					<li><a href="#" class="dropdownmenubtn" onclick="GenerateCsharpfile();">Download</a></li>
+					<li><a href="#" class="dropdownmenubtn" onclick="ChangeFilename();">Change Filename</a></li>
+				  </ul>
+				</div>
+				<div class="dropdown toolbartabs" id="EditorTab">
+				  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Editor
+				  <span class="caret"></span></button>
+				  <ul class="dropdown-menu">
+					<li><a href="#" class="dropdownmenubtn" onclick="ClearCustomTable();">Clear Custom Table</a></li>
+						<li><a href="#" class="dropdownmenubtn" onclick="AddBasicBlocksTemplate();">Insert Standard Template</a></li>
+
+				  </ul>
+				</div>
+				<div class="dropdown toolbartabs" id="ViewTab">
+					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">View
+					<span class="caret"></span></button>
+					<ul class="dropdown-menu">
+						<li><a href="#" class="dropdownmenubtn" onclick="null">Advanced View</a></li>
+
+					</ul>
+				</div>
+				<div class="dropdown toolbartabs" id="SettingsTab">
+					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Settings
+					<span class="caret"></span></button>
+					<ul class="dropdown-menu">
+						<li><a href="#" class="dropdownmenubtn" onclick="null">Advanced View</a></li>
+
+					</ul>
+				</div>-->
+				<!--<input type="button" value="Download" onclick="GenerateCsharpfile();">-->
+		</div>
+
+        <div id="windows">
+            <div id="blockly_area" class="window_1_dualPane"></div>
+			<div id="blank_window" class="window_2_dualPane"></div>
         </div>
 
-		<!--
-		<div id="toolbar">
-			<div class="dropdown toolbartabs" id="FileTab">
-			  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">File
-			  <span class="caret"></span></button>
-			  <ul class="dropdown-menu">
-			    <li><a href="#" class="dropdownmenubtn" onclick="GenerateCsharpfile();">Download</a></li>
-			    <li><a href="#" class="dropdownmenubtn" onclick="ChangeFilename();">Change Filename</a></li>
-			  </ul>
-			</div>
-			<div class="dropdown toolbartabs" id="EditorTab">
-			  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Editor
-			  <span class="caret"></span></button>
-			  <ul class="dropdown-menu">
-			    <li><a href="#" class="dropdownmenubtn" onclick="ClearCustomTable();">Clear Custom Table</a></li>
-					<li><a href="#" class="dropdownmenubtn" onclick="AddBasicBlocksTemplate();">Insert Standard Template</a></li>
+		<xml id="toolbox" style="display: none">
+			<!--<category name="Logic" colour="310">-->
+				<block type="controls_if"></block>
+				<block type="logic_compare"></block>
+				<block type="controls_repeat_ext"></block>
+				<block type="math_number"></block>
+				<block type="math_arithmetic"></block>
+			<!--</category>
+			<category name="Control" colour="10">-->
+				<block type="text"></block>
+				<block type="text_print"></block>
+			<!--</category>-->
+		</xml>
 
-			  </ul>
-			</div>
-			<div class="dropdown toolbartabs" id="ViewTab">
-				<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">View
-				<span class="caret"></span></button>
-				<ul class="dropdown-menu">
-					<li><a href="#" class="dropdownmenubtn" onclick="null">Advanced View</a></li>
-
-				</ul>
-			</div>
-			<div class="dropdown toolbartabs" id="SettingsTab">
-				<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Settings
-				<span class="caret"></span></button>
-				<ul class="dropdown-menu">
-					<li><a href="#" class="dropdownmenubtn" onclick="null">Advanced View</a></li>
-
-				</ul>
-			</div>-->
-			<!--<input type="button" value="Download" onclick="GenerateCsharpfile();">-->
-		</div>
 	</div>
-	
-	<div id="blocklyDiv" style="height: 480px; width: 50%;"></div>
-
-	<xml id="toolbox" style="display: none">
-	  <block type="controls_if"></block>
-	  <block type="controls_repeat_ext"></block>
-	  <block type="logic_compare"></block>
-	  <block type="math_number"></block>
-	  <block type="math_arithmetic"></block>
-	  <block type="text"></block>
-	  <block type="text_print"></block>
-	</xml>
 
 	<!--
-	<div id="PrefabTable">
-		<br>
-		<p class="LeftMargin">Prefabs</p>
-		<input type="text" class="LeftMargin" id="NewPrefab">
-		<input type="button" value="Add Prefab" class="LeftMargin" onclick="AddCustomPrefab(document.getElementById('NewPrefab').value);">
-		<br><br>
-		<ul id="PrefabList">
-			<!--<li class="prefabs" onclick="AddPrefabBlock(this);">using System;</li> --><!-- Add event listener instead of onclick - ->
-		</ul>
-	</div>
-
-	<div id="DragableTable">
-		<br>
-		<p class="LeftMargin">Editor</p>
-		<input type="text" class="LeftMargin" id="NewBlock">
-		<input type="button" value="Add Block" class="LeftMargin" onclick="AddCustomBlock(document.getElementById('NewBlock').value);"><input type="checkbox" onclick="advancedview()" id="AdvancedViewCB" checked>Toggle Advanced view
-		<br><br>
-		<ul class="DragList" id="DragList">
-			<!--<li class="dragable" draggable="true"><input type="text" class="dragableTextbox" value="using System;"></li>
-			<li class="dragable" draggable="true"><input type="text" class="dragableTextbox" value="using System.Dianostics;"></li>- ->
-		</ul>
-	</div>-->
+		<div id="PrefabTable">
+			<br>
+			<p class="LeftMargin">Prefabs</p>
+			<input type="text" class="LeftMargin" id="NewPrefab">
+			<input type="button" value="Add Prefab" class="LeftMargin" onclick="AddCustomPrefab(document.getElementById('NewPrefab').value);">
+			<br><br>
+			<ul id="PrefabList">
+				<!--<li class="prefabs" onclick="AddPrefabBlock(this);">using System;</li> --><!-- Add event listener instead of onclick - ->
+			</ul>
+		</div>
+		<div id="DragableTable">
+			<br>
+			<p class="LeftMargin">Editor</p>
+			<input type="text" class="LeftMargin" id="NewBlock">
+			<input type="button" value="Add Block" class="LeftMargin" onclick="AddCustomBlock(document.getElementById('NewBlock').value);"><input type="checkbox" onclick="advancedview()" id="AdvancedViewCB" checked>Toggle Advanced view
+			<br><br>
+			<ul class="DragList" id="DragList">
+				<!--<li class="dragable" draggable="true"><input type="text" class="dragableTextbox" value="using System;"></li>
+				<li class="dragable" draggable="true"><input type="text" class="dragableTextbox" value="using System.Dianostics;"></li>- ->
+			</ul>
+		</div>-->
+</div>
 </body>
 </html>
 <script src="index.js"></script>
+<script src="locale.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+-->
+<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+-->

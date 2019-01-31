@@ -69,7 +69,7 @@ function AddBasicBlocksTemplate(){
   }
 }
 function GenerateCsharpfile(){
-  var filename = document.getElementById("FilenameInput");
+  var filename = document.getElementById("projectname_input");
   var LinesOfCode = document.getElementsByClassName("dragable");
   var CodeSource = "";
   if (filename.value != "") {
@@ -83,7 +83,7 @@ function GenerateCsharpfile(){
       }
       i+=1;
     }
-    download(document.getElementById("FilenameInput").value, CodeSource)
+    download(document.getElementById("projectname_input").value, CodeSource)
   }
 }
 function download(filename, text) {
