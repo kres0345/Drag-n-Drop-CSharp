@@ -1,5 +1,5 @@
 {
-	"menubar":{
+	"toolbar":{
 		"file": {
 			"label": "File",
 			"download": "Download"

@@ -194,7 +194,7 @@
 
       if (options.i18n) {
         if (options.i18n instanceof VueI18n) {
-          // init locale messages via custom blocks
+          // init locale locale via custom blocks
           if (options.__i18n) {
             try {
               var localeMessages = {};
@@ -206,7 +206,7 @@
               });
             } catch (e) {
               {
-                warn("Cannot parse locale messages via custom blocks.", e);
+                warn("Cannot parse locale locale via custom blocks.", e);
               }
             }
           }
@@ -226,17 +226,17 @@
             options.i18n.preserveDirectiveContent = this.$root.$i18n.preserveDirectiveContent;
           }
 
-          // init locale messages via custom blocks
+          // init locale locale via custom blocks
           if (options.__i18n) {
             try {
               var localeMessages$1 = {};
               options.__i18n.forEach(function (resource) {
                 localeMessages$1 = merge(localeMessages$1, JSON.parse(resource));
               });
-              options.i18n.messages = localeMessages$1;
+              options.i18n.locale = localeMessages$1;
             } catch (e) {
               {
-                warn("Cannot parse locale messages via custom blocks.", e);
+                warn("Cannot parse locale locale via custom blocks.", e);
               }
             }
           }

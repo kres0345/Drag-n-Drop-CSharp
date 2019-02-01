@@ -9,11 +9,17 @@ let cookies = function () {
     function get_cookie(){
         let cookie = document.cookie.split(";");
         let cookie_json = {};
+        if (document.cookie.length === 0){
+            return cookie_json;
+        }
 
         for(let i=0;i<cookie.length;i++){
             let cookie_key = cookie[i].split("=")[0];
             let cookie_value = cookie[i].slice(cookie_key.length + 1, cookie[i].length);
-
+            
+            if (cookie_key === " " || cookie_value === " "){
+                continue;
+            }
             cookie_json[cookie_key] = cookie_value;
         }
         return cookie_json;
@@ -42,6 +48,7 @@ let cookies = function () {
      */
     function set(key, value) {
         let cookie_json = get_cookie();
+
         cookie_json[key] = value;
         set_cookie(cookie_json);
     }
