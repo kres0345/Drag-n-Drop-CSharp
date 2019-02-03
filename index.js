@@ -1,10 +1,13 @@
 Vue.config.ignoredElements = ['xml', 'category', 'block'];
 
-let BlocklyWorkspace = Blockly.inject('blockly_area',
-      {toolbox: document.getElementById('toolbox')});
+window.onload = function(){
+    let BlocklyWorkspace = Blockly.inject('blockly_area',
+        {toolbox: document.getElementById('toolbox')});
+    console.log("Loaded blockly workspace")
+};
+
 
 const windowTitle_trail = " - Drag n' Drop";
-
 let projectname;
 
 //init title

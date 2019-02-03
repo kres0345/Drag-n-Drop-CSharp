@@ -28,7 +28,9 @@ let localization = function(){
             return;
         }
         $.getJSON("locale\\"+language_code+".json", function (json_data, err) {
-            console.log(err);
+            if (err !== "success"){
+                console.error(err);
+            }
             try{
                 locale[language_code] = json_data;
             }catch (e) {
@@ -76,11 +78,11 @@ let locale = {
                 download: "Download"
             },
             edit:{
-                label: "Redigér"
+                label: "Rediger"
             },
             view: {
                 label: "Vis",
-                advanced: "Vis advancerede indstillinger"
+                advanced: "Vis avancerede indstillinger"
             }
         }
     }
@@ -91,10 +93,9 @@ localization.locale_cookie();
 //for now just default to english.
 localization.update_language();
 
-//localization.locale_code = "da";
-
 const i18n = new VueI18n({ locale: localization.locale_code, messages: locale}); //localization.locale_code
-new Vue({ i18n }).$mount('#application');
+new Vue({ i18n }).$mount('#application'); //Blockly has to be injected AFTER vue mounts, otherwise weird bugs appear
+console.log("Mounted vue ('#application')");
 
 // Initialization, adds filename.
 projectname_change(locale[localization.locale_code]._default_settings.project_name);

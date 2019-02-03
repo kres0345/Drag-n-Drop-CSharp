@@ -1,4 +1,7 @@
 {
+	"_default_settings":{
+		"project_name": "Untitled Project"
+	},
 	"toolbar":{
 		"file": {
 			"label": "File",
